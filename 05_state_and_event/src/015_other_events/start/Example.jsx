@@ -13,6 +13,19 @@ const Example = () => {
           onFocus={() => console.log("onFocus検知")}
         />
       </label>
+      <div>
+        <label htmlFor="">
+          入力値を取得：
+'          <input type="text" onChange={(e) => console.log(e.target.value)}/>
+'        </label>
+      </div>
+      <div
+        className="hover-event"
+        onMouseEnter={() => console.log("危険 マウスが侵入したよ！！！")}
+        onMouseLeave={() => console.log("優勝 マウスを撃退したよ！！！")}
+        >
+          ホバーしてね！
+      </div>
       {/* <div>
         <label>
           入力値を取得：
