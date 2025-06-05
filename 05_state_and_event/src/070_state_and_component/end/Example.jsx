@@ -4,6 +4,7 @@ import { useState } from "react";
 const Example = () => {
   const [ toggle, setToggle ] = useState(true);
   const toggleComponent = () => {
+    // prevには直前のtoggleの値が入る
     setToggle(prev => !prev);
   }
   return (
