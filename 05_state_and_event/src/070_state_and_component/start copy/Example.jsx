@@ -1,22 +1,6 @@
 import { useState } from "react";
 
-// toggleで表示するにはif文 classNameで隠す、表示するを変更  
 const Example = () => {
-  const [toggle, setToggle] = useState(true);
-  const toggleComponent = () => {
-    setToggle(prev => !prev);
-  };
-
-  return (
-    <>
-      <button onClick={toggleComponent}>toggle</button>
-      {toggle ? <Count title="A" key="A"/> : <Count title="B" key="B"/>}
-    </>
-  )
-}
-
-
-const Count = ({ title }) => {
   const [count, setCount] = useState(0);
   const countUp = () => {
     setCount((prevstate) => prevstate + 1);
