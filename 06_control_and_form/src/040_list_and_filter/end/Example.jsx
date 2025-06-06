@@ -10,6 +10,7 @@ const Example = () => {
       <input type="text" value={filterVal} onChange={(e) => setFilterVal(e.target.value)} />
       <ul>
         {animals
+        // filterには真偽値が返る。trueだと処理継続、falseだと消滅 (ループにおけるcontinueのようなイメージ)
           .filter(animal => {
             const isMatch = animal.indexOf(filterVal) !== -1;
             console.log(animal.indexOf(filterVal))
