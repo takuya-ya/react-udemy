@@ -20,13 +20,18 @@ const Example = () => {
             return isMatch;
           })
           .map((animal) => {
-            if (animal === 'Dog') {
-              // jsxに★記載
-              return <li key={animal}>{animal}★ </li>
-              // jsに★記載も同じ意味
-              // return <li key={animal}>{animal + "★"}</li>
-            }
-            return <li key={animal}>{animal}</li>
+            // if (animal === 'Dog') {
+            //   // jsxに★記載
+            //   return <li key={animal}>{animal}★ </li>
+            //   // jsに★記載
+            //   // return <li key={animal}>{animal + "★"}</li>
+            // }
+            // return <li key={animal}>{animal}</li>
+
+            // 三項演算子の場合
+            return <li key={animal}>{animal === 'Dog' ? animal + '★' : animal } </li>
+
+
           })
         }
       </ul>
