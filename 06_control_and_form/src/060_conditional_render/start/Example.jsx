@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const Example = () => {
-  const animals = ["Dog", "Cat", "Rat"];
+  const animals = ["Dog", "Cat", null, "Rat"];
 
   const [filterVal, setFilterVal] = useState("");
 
@@ -15,13 +15,32 @@ const Example = () => {
       <ul>
         {animals
           .filter((animal) => {
-            const isMatch = animal.indexOf(filterVal) !== -1;
-            console.log(animal.indexOf(filterVal));
+            const animalStr = animal ?? '';
+            const isMatch = animalStr.indexOf(filterVal) !== -1;
+            console.log(animalStr.indexOf(filterVal));
             return isMatch;
           })
-          .map((animal) => (
-            <li key={animal}>{animal}</li>
-          ))}
+          .map((animal) => {
+            // if (animal === 'Dog') {
+            //   // jsxに★記載
+            //   return <li key={animal}>{animal}★ </li>
+            //   // jsに★記載
+            //   // return <li key={animal}>{animal + "★"}</li>
+            // }
+            // return <li key={animal}>{animal}</li>
+
+            // 三項演算子の場合
+            // return <li key={animal}>{animal === 'Dog' ? animal + '★' : animal } </li>
+
+            // &&の場合
+            // return <li key={animal}>{animal + (animal === 'Dog' && '★') } </li>
+
+            // Reactの場合、真偽値が表示されないのを利用
+            // Dogであれば★、Dogでなければfalseになる。しかし、Reactではfalseは表示されないので、意図した表示になる
+            // return <li key={animal}>{animal}{animal === 'Dog' && '★'} </li>;
+            return <li key={animal}>{animal ?? 'null,undefinedでした' }{animal === 'Dog' && '★'} </li>;
+          })
+        }
       </ul>
     </>
   );
