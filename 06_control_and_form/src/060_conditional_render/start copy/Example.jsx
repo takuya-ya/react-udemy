@@ -19,16 +19,9 @@ const Example = () => {
             console.log(animal.indexOf(filterVal));
             return isMatch;
           })
-          .map((animal) => {
-            if (animal === 'Dog') {
-              // jsxに★記載
-              return <li key={animal}>{animal}★ </li>
-              // jsに★記載も同じ意味
-              // return <li key={animal}>{animal + "★"}</li>
-            }
-            return <li key={animal}>{animal}</li>
-          })
-        }
+          .map((animal) => (
+            <li key={animal}>{animal}</li>
+          ))}
       </ul>
     </>
   );
