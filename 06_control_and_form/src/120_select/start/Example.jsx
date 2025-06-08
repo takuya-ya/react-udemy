@@ -2,6 +2,8 @@ import { useState } from "react";
 
 const Example = () => {
   const [selected, setSelected] = useState('Banana');
+  const OPTIONS = ["Apple", "Banana", "Cherry"];
+
   return (
     <>
     <p style={{ textAlign: "center" }}>
@@ -11,9 +13,14 @@ const Example = () => {
     </p>
 
     <select value={selected}  onChange={(e) => setSelected(e.target.value)}>
-        <option value="Apple">Apple</option>
+      {OPTIONS.map(opt => {
+        return  <option key={opt} value={opt}>{opt}</option>;
+      })}
+
+
+        {/* <option value="Apple">Apple</option>
         <option value="Banana">Banana</option>
-        <option value="Cherry">Cherry</option>
+        <option value="Cherry">Cherry</option> */}
     </select>
 
     <div>
