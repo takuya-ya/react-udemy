@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import List from "./List";
 import Form from "./Form";
 
@@ -18,12 +17,12 @@ const Todo = () => {
     },
   ];
 
-const [todos, setTodos] = useState(todosList);
-
   return (
     <>
-      <List todos={todos} setTodos={setTodos}/>
+      <List />
       <Form />
     </>
   );
 };
+
+export default Todo;
