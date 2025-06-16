@@ -1,5 +1,6 @@
 import { createContext, useContext, useReducer } from "react";
 
+// このコードの目的は、stateとdispatchをコンテキストで提供し、コンポーネントツリーのどこからでも、useReducerによる状態管理を行えるようにしたこと
 const CounterContext = createContext();
 const CounterDispatchContext = createContext();
 
