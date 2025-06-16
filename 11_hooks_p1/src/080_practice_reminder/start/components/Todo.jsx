@@ -20,8 +20,11 @@ const Todo = () => {
 
   const [ todos, setTodos ] = useState(todosList);
 
+  // 新しくstateを更新する事で、指定したidのTodoを削除する関数
+  // filterメソッドを使って、todosの中からidが一致しないものだけを残す
   const deleteTodo = (id) => {
     const newTodos = todos.filter((todo) => {
+      // todoのidが削除したいidと一致しない場合にtrueを返す。つまり、削除したいidのTodoだけを除外する
       return todo.id !== id;
     });
 
