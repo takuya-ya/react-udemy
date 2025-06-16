@@ -14,9 +14,6 @@ const Example = () => {
     }
   }, 0);
 
-  // 処理内容はuseReducerの中で定義されているので、dispatchを使うだけでOK
-  // dispatchの呼出しとプロパティをuseReducerに渡すだけの関数
-  // 処理内容を抽象化して、再利用を可能にする 
   const countUp = () => {
     dispatch({ type: "+", step: 2 });
   };
