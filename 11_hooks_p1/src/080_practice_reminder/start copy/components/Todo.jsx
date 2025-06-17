@@ -7,18 +7,14 @@ const Todo = () => {
     {
       id: 1,
       content: "店予約する",
-      editing: false,
-
     },
     {
       id: 2,
       content: "卵買う",
-      editing: false,
     },
     {
       id: 3,
       content: "郵便出す",
-      editing: false,
     },
   ];
 
@@ -39,20 +35,9 @@ const Todo = () => {
     setTodos([...todos, todo]);
   }
 
-  // 特定のTodoを更新する関数
-  const updateTodo = (todo) => {
-    const newTodos = (
-      // 呼出し元では特定のtodo.editingが変更(ここではtodo)されている。その変更されたtodoを(現在)_todoから特定して値を更新する。その為にtodosをループ、todoのidと照合、合致したtodoを加えることで上書きされるように設定
-      todos.map(_todo => {
-        return _todo.id === todo.id ? {..._todo, ...todo} : {..._todo};
-      })
-    );
-    setTodos(newTodos);
-  };
-
   return (
     <>
-      <List todos={todos} deleteTodo={deleteTodo} updateTodo={updateTodo}/>
+      <List todos={todos} deleteTodo={deleteTodo}/>
       <Form createTodo={createTodo}/>
     </>
   )
