@@ -2,6 +2,7 @@ import { createContext, useContext, useReducer } from "react";
 
 // 更新したいオブジェクトプロパティを入れるコンテキスト（箱）の作成
 const TodoContext = createContext();
+
 const TodoDispatchContext = createContext();
 
 // 初期のTodoリストを定義
