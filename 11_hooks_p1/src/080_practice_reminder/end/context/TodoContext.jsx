@@ -21,6 +21,7 @@ const todosList = [
   },
 ];
 
+// useReducerの第二引数がtodosの初期値
 const todoReducer = (todos, action) => {
   switch (action.type) {
     case "todo/add":
