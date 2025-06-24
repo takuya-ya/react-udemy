@@ -22,6 +22,7 @@ const Item = ({ todo }) => {
       editing: !todo.editing,
       content: editingContent,
     };
+    //thenのnewTodoは、patchでで更新されたデータを渡されている。ちなみに上で手議されているnewTodoを渡しても問題ない。
     todoApi.patch(newTodo).then((newTodo) => {
       dispatch({ type: "todo/update", todo: newTodo });
     });

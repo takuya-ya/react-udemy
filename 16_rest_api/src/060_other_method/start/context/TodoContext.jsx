@@ -21,6 +21,8 @@ const todosList = [
   },
 ];
 
+// dispatchに渡した値を処理する関数。ここで処理してreturnでtodosに渡して更新。
+// todoReducerの無名関数に渡してある引数のtodosは別物なので注意、これは既存todosで、最終的なreturnとは違う
 const todoReducer = (todos, action) => {
   switch (action.type) {
     case "todo/add":
