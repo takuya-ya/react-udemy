@@ -5,9 +5,11 @@ export default function ArticleForm() {
   const [newTitle, setNewTitle] = useState("");
   const [msg, setMsg] = useState("")
 
+  // ここでのeはform要素そのもの
   const onSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
+    // form 要素内の入力値を FormData にまとめている
     const formData = new FormData(form);
 
     fetch('/api/article', { method: form.method, body: formData }).then((res) => {
