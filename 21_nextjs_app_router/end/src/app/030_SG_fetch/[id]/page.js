@@ -11,6 +11,8 @@ export async function generateMetadata({ params }) {
   };
 }
 
+// ビルド時に取得する全パスのパラメータ（例：{ id: '1' }）を生成してNext.jsに通知する
+// Next.js はこのリストを元に静的ページ（/xxx/[id]）を事前に生成する
 export async function generateStaticParams() {
   const data = await fetch(ENDPOINT).then((res) => res.json());
   return data.map((record) => ({ id: record.id }));

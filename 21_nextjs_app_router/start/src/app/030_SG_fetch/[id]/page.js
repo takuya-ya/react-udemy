@@ -2,6 +2,7 @@ import { ENDPOINT } from "@/constants";
 import Article from "../../../components/article";
 
 export async function generateStaticParams() {
+  // SGの為に必要なパラメータの一覧を取得
   const data = await fetch(ENDPOINT).then(res => res.json());
   // console.log(data);
   // () は オブジェクトリテラルであることを示す記号です（return の省略ではない）
