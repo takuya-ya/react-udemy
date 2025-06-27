@@ -10,10 +10,13 @@ export default function ArticleForm() {
     const form = e.target;
     const formData = new FormData(form);
 
+    //fetch の第二引数は、リクエストのオプション（設定）を指定するオブジェクトです。
     fetch('/api/article', { method: form.method, body: formData }).then((res) => {
       if(!res.ok) {
-        return 'エラーが発生しました。'
-      }
+        return res.json().then(data => {
+        return data.msg
+        })
+     }
       return res.json().then(data => {
         return `${data.id}:${data.title}の登録が完了しました。`
       })
