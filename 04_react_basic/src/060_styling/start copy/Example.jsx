@@ -6,8 +6,9 @@ import "./Example.css";
 const Example = () => {
   return (
     <div className="component">
-      <h3>Hello Compornent</h3>
+      <h3>Hello Component</h3>
     </div>
   );
-}
-export default Example
+};
+
+export default Example;
