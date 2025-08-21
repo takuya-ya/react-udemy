@@ -1,4 +1,4 @@
-.App-start .profile {
+.App-end .profile {
   border: 3px solid red;
   color: red;
   border-radius: 20px;
@@ -6,7 +6,6 @@
   font-weight: 600;
   margin-bottom: 1.5rem;
 }
-
-.App-start .profile p {
+.App-end .profile p {
   font-size: 1.3em;
 }
