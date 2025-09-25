@@ -1,13 +1,10 @@
 import "./Container.css";
 
-const Container = ({ title, children, first, second }) => {
-  console.log(children);
+const Container = ({ title, children }) => {
   return (
     <div className="container">
       <h3>{title}</h3>
       {children}
-      {second}
-      {first}
     </div>
   );
 };
