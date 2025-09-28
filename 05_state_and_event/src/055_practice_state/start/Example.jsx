@@ -1,18 +1,18 @@
-import { useState } from "react";
+import {useState} from 'react';
 
 const Example = () => {
-  const [counte, setCounte] = useState(0);
-
+  const [count, setCount] = useState(0);
   const countUp = () => {
-    setCounte((state) => state + 1);
-  };
+    setCount(count + 1);
+  }
   const countDown = () => {
-    setCounte((state) => state - 1);
-  };
+    setCount(count - 1);
+  }
 
   return (
     <>
-      <p>現在のカウント数: {counte}</p>
+      <h3>練習問題</h3>
+      <p>現在のカウント数: {count}</p>
       <button onClick={countUp}>+</button>
       <button onClick={countDown}>-</button>
     </>
