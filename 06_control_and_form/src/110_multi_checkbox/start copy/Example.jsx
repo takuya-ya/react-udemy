@@ -1,7 +1,5 @@
 import { useState } from "react";
 
-// end用:startと値が被らないための接続詞
-const prefix = "end-";
 // POINT 複数チェックボックスの実装
 const Example = () => {
   const [fruits, setFruits] = useState([
@@ -12,7 +10,6 @@ const Example = () => {
 
   const [sum, setSum] = useState(0);
 
-  //FruitとValを更新する
   const handleChange = (e) => {
     const newFruits = fruits.map((fruit) => {
       const newFruit = { ...fruit };
@@ -23,8 +20,6 @@ const Example = () => {
       return newFruit;
     });
 
-    //画面（JSX）が再レンダーされ、チェック状態が反映される
-    //handleChangeの実行でオブジェクトが変更され、チェックボックスにチェックが入る
     setFruits(newFruits);
     // forEachバージョン
     // let sumVal = 0;
@@ -52,15 +47,13 @@ const Example = () => {
         return (
           <div key={fruit.label}>
             <input
-              // 接続詞追加
-              id={prefix + fruit.label}
+              id={fruit.label}
               type="checkbox"
               value={fruit.label}
               checked={fruit.checked}
               onChange={handleChange}
             />
-            {/* 接続詞追加 */}
-            <label htmlFor={prefix + fruit.label}>
+            <label htmlFor={fruit.label}>
               {fruit.label}:{fruit.value}
             </label>
           </div>
