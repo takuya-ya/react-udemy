@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 const prefix = "start-";
-
 const Example = () => {
   const [fruits, setFruits] = useState([
     { label: "Apple", value: 100, checked: false },
@@ -9,12 +8,15 @@ const Example = () => {
     { label: "Cherry", value: 300, checked: false },
   ]);
 
+  const [sum, setSum] = useState(0);
+
   const handleChange = (e) => {
     const newFruits = fruits.map((fruit) => {
       const newFruit = { ...fruit };
       if (newFruit.label === e.target.value) {
         newFruit.checked = !fruit.checked;
       }
+
       return newFruit;
     });
 
@@ -26,14 +28,13 @@ const Example = () => {
     setSum(sumVal);
   };
 
-  const [sum, setSum] = useState(0);
-
   return (
     <div>
       {fruits.map((fruit) => {
         return (
           <div key={fruit.label}>
             <input
+              id={prefix + fruit.label}
               type="checkbox"
               value={fruit.label}
               checked={fruit.checked}
