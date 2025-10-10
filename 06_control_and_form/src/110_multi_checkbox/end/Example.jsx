@@ -34,12 +34,6 @@ const Example = () => {
     //   }
     // });
 
-    // filter + forEachバージョン
-    // let sumVal = 0;
-    // newFruits
-    //   .filter((fruit) => fruit.checked)
-    //   .forEach((fruit) => (sumVal = sumVal + fruit.value));
-
     // filter + reduceバージョン
     let sumVal = newFruits
       .filter((fruit) => fruit.checked)
