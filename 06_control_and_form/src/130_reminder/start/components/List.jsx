@@ -1,20 +1,5 @@
-const List = ({ todos, deletedTodo}) => {
-  const complete = (id) => {
-      deletedTodo(id);
-  };
-
-  return (
-    <div>
-      {todos.map(todo => {
-        return (
-          <div key={todo.id}>
-            <button onClick={() => complete(todo.id)}>完了</button>
-            <span>{todo.content}</span>
-          </div>
-        );
-      })}
-    </div>
-  );
+const List = () => {
+  return <></>;
 };
 
 export default List;
