@@ -1,3 +1,7 @@
+import { useState } from "react";
+import List from "./List";
+import Form from "./Form";
+
 const Todo = () => {
   const todosList = [
     {
@@ -13,6 +17,15 @@ const Todo = () => {
       content: "郵便出す",
     },
   ];
+
+  const [todos, setTodos] = useState(todosList);
+
+  return (
+    <>
+      <List todos={todos} />
+      <Form />
+    </>
+  );
 };
 
 export default Todo;
