@@ -18,12 +18,23 @@ const Todo = () => {
     },
   ];
 
+  const deleteTodo = (id) => {
+    const newTodos = todos.filter((todo) => {
+      return todo.id !== id;
+    });
+    setTodos(newTodos);
+  };
+
+  const createTodo = (newTodo) => {
+    setTodos([...todos, newTodo]);
+  };
+
   const [todos, setTodos] = useState(todosList);
 
   return (
     <>
-      <List todos={todos} />
-      <Form />
+      <List todos={todos} deleteTodo={deleteTodo} />
+      <Form createTodo={createTodo} />
     </>
   );
 };
