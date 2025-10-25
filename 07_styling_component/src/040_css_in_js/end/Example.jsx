@@ -28,7 +28,7 @@ const StyledButton = styled.button`
   transition: all 0.3s ease-out;
 
   /* POINT 疑似クラスの追加 */
-  /* 2924/04 ホバー時のスタイルが正しく適用していないの修正*/
+  /* 2024/04 ホバー時のスタイルが正しく適用していないの修正*/
   &:hover,
   :active {
     opacity: 0.7;

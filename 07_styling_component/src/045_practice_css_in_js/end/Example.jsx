@@ -14,9 +14,9 @@ const SecondButton = styled(FirstButton)`
   background: red;
   color: white;
 `;
-
+// 2024/12 Transient props を使用するように修正
 const ThirdButton = styled(SecondButton)`
-  background: ${(props) => (props.dark ? "black" : "green")};
+  background: ${({ $dark }) => ($dark ? "black" : "green")};
 `;
 
 const Example = () => {
@@ -28,7 +28,7 @@ const Example = () => {
 
       <ThirdButton>ボタン3</ThirdButton>
 
-      <ThirdButton dark>ボタン3</ThirdButton>
+      <ThirdButton $dark>ボタン3</ThirdButton>
     </>
   );
 };
