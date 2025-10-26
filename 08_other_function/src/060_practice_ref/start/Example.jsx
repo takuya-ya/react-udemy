@@ -1,8 +1,6 @@
 import { useState, useRef, forwardRef, useImperativeHandle } from "react";
 
-// path は props.path の分割代入。 本来はpropsを受け取るが、分割代入でpropsのpathのみ取得
 const Video = forwardRef(({ path }, ref) => {
-
   const videoRef = useRef();
 
   useImperativeHandle(ref, () => ({
@@ -11,7 +9,7 @@ const Video = forwardRef(({ path }, ref) => {
     },
     stop() {
       videoRef.current.pause();
-    }
+    },
   }));
 
   return (
@@ -32,13 +30,10 @@ const Example = () => {
       <button
         onClick={() => {
           if (playing) {
-            ref.current.stop()
-
-          } else
-          {
-            ref.current.play()
-
-          };
+            ref.current.stop();
+          } else {
+            ref.current.play();
+          }
           setPlaying((prev) => !prev);
         }}
       >
