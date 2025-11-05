@@ -1,31 +1,13 @@
-import { useReducer } from "react";
 import Counter from "./components/Counter";
+import { CounterProvider } from "./context/CounterContext";
 
 // POINT useContext x useReducer
 const Example = () => {
-  const [state, dispatch] = useReducer((prev, { type, step }) => {
-    switch (type) {
-      case "+":
-        return prev + step;
-      case "-":
-        return prev - step;
-      default:
-        throw new Error('不明なactionです。')
-    }
-  }, 0);
-
-  // 処理内容はuseReducerの中で定義されているので、dispatchを使うだけでOK
-  // dispatchの呼出しとプロパティをuseReducerに渡すだけの関数
-  // 処理内容を抽象化して、再利用を可能にする 
-  const countUp = () => {
-    dispatch({ type: "+", step: 2 });
-  };
-  const countDown = () => {
-    dispatch({ type: "-", step: 2 });
-  };
   return (
     <>
-      <Counter state={state} countUp={countUp} countDown={countDown} />
+      <CounterProvider>
+        <Counter />
+      </CounterProvider>
     </>
   );
 };
