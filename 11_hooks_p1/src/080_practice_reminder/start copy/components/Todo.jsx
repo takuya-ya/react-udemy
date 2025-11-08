@@ -1,6 +1,6 @@
-import { useState } from "react"
-import List from "./List"
-import Form from "./Form"
+import { useState } from "react";
+import List from "./List";
+import Form from "./Form";
 
 const Todo = () => {
   const todosList = [
@@ -18,7 +18,7 @@ const Todo = () => {
     },
   ];
 
-  const [ todos, setTodos ] = useState(todosList);
+  const [todos, setTodos] = useState(todosList);
 
   // 新しくstateを更新する事で、指定したidのTodoを削除する関数
   // filterメソッドを使って、todosの中からidが一致しないものだけを残す
@@ -29,17 +29,17 @@ const Todo = () => {
     });
 
     setTodos(newTodos);
-  }
+  };
 
   const createTodo = (todo) => {
     setTodos([...todos, todo]);
-  }
+  };
 
   return (
     <>
-      <List todos={todos} deleteTodo={deleteTodo}/>
-      <Form createTodo={createTodo}/>
+      <List todos={todos} deleteTodo={deleteTodo} />
+      <Form createTodo={createTodo} />
     </>
-  )
+  );
 };
 export default Todo;
