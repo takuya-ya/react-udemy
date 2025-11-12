@@ -1,5 +1,4 @@
-import { createContext, useReducer, useReducer } from "react";
-import Todo from "../components/Todo";
+import { createContext, useReducer, useContext } from "react";
 
 const TodoContext = createContext();
 const TodoDispatchContext = createContext();
@@ -30,19 +29,20 @@ const TodoProvider = ({ children }) => {
       case "todo/delete":
         return todos.filter((todo) => {
           // todoのidが削除したいidと一致しない場合にtrueを返す。つまり、削除したいidのTodoだけを除外する
-          return todo.id !== id;
+          return todo.id !== action.todo.id;
         });
       case "todo/update":
         return todos.map((_todo) => {
-          return _todo.id === todo.id ? { ..._todo, ...todo } : { ..._todo };
+          return _todo.id === action.todo.id
+            ? { ..._todo, ...action.todo }
+            : { ..._todo };
         });
-
       default:
         return todos;
     }
   };
 
-  const [todos, dispatch] = useReducer(reducer, todosList);
+  const [todos, dispatch] = useReducer(todoReducer, todosList);
 
   return (
     <TodoContext.Provider value={todos}>
@@ -53,7 +53,12 @@ const TodoProvider = ({ children }) => {
   );
 };
 
-const useTodos = useContext(TodoContext);
-const useDispatchTodos = useContext(TodoDispatchContext);
+const useTodos = () => {
+  return useContext(TodoContext);
+};
+
+const useDispatchTodos = () => {
+  return useContext(TodoDispatchContext);
+};
 
 export { useTodos, useDispatchTodos, TodoProvider };
