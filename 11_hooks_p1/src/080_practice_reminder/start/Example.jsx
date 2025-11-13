@@ -5,7 +5,16 @@ const Example = () => {
     <>
       <h3>練習問題</h3>
       <ul>
-        <li>ReducerとContextを使ってTodoをグローバルなステートにしましょう</li>
+        <li>
+          Listコンポーネント内の各項目をItemコンポーネントに分離しましょう。
+        </li>
+        <li>
+          タイトルをダブルクリックするとタイトルを変更出来るようにしましょう
+        </li>
+        <li>
+          ReducerとC11_hooks_p1/src/080_practice_reminder/start
+          copyontextを使ってTodoをグローバルなステートにしましょう
+        </li>
       </ul>
       <h2>Reminder</h2>
       <Todo />
