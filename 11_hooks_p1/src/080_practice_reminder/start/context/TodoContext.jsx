@@ -7,7 +7,7 @@ const todosList = [
   {
     id: 1,
     content: "店予約する",
-    editing: true,
+    editing: false,
   },
   {
     id: 2,
@@ -52,7 +52,7 @@ const TodoProvider = ({ children }) => {
   );
 };
 
-const useTodo = () => useContext(TodoContext);
+const useTodos = () => useContext(TodoContext);
 const useDispatchTodos = () => useContext(TodoDispatchContext);
 
-export { TodoProvider, useTodo, useDispatchTodos };
+export { TodoProvider, useTodos, useDispatchTodos };

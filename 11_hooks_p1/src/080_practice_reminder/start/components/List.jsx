@@ -1,4 +1,4 @@
-import { useTodos } from "../../end/context/TodoContext";
+import { useTodos } from "../../start/context/TodoContext";
 import Item from "./Item";
 
 const List = ({}) => {
