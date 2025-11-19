@@ -1,12 +1,12 @@
-import { useTodos } from "../../start/context/TodoContext";
 import Item from "./Item";
-
-const List = ({}) => {
-  const todos = useTodos();
+const List = ({ todos, deleteTodo }) => {
+  const complete = (id) => {
+    deleteTodo(id);
+  };
   return (
     <div>
       {todos.map((todo) => {
-        return <Item key={todo.id} todo={todo} />;
+        return <Item Key={todo.id} todo={todo} complete={complete} />;
       })}
     </div>
   );
