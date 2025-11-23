@@ -1,15 +1,18 @@
 import { useState } from "react";
+import { useDispatchTodos } from "../context/TodoContext";
 
-const Item = ({ todo, complete, updateTodo }) => {
+const Item = ({ todo }) => {
   const [editingContent, setEditingContent] = useState(todo.content);
   const changeContent = (e) => setEditingContent(e.target.value);
+
+  const dispatch = useDispatchTodos();
 
   const toggleTodo = () => {
     const newTodo = {
       ...todo,
       editing: !todo.editing,
     };
-    updateTodo(newTodo);
+    dispatch({ type: "todo/update", todo: newTodo });
   };
 
   const confirmTodo = (e) => {
@@ -19,12 +22,16 @@ const Item = ({ todo, complete, updateTodo }) => {
       content: editingContent,
       editing: !todo.editing,
     };
-    updateTodo(newTodo);
+    dispatch({ type: "todo/update", todo: newTodo });
+  };
+
+  const complete = (todo) => {
+    dispatch({ type: "todo/delete", todo: todo });
   };
 
   return (
     <div>
-      <button onClick={() => complete(todo.id)}>完了</button>
+      <button onClick={() => complete(todo)}>完了</button>
       <form onSubmit={confirmTodo}>
         {todo.editing ? (
           <input type="text" value={editingContent} onChange={changeContent} />
